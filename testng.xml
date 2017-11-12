@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Suite" parallel="tests" configfailurepolicy="continue" thread-count="4" preserve-order="true">
+    <listeners>
+        <listener class-name="cvListeners.ExecutionListener" />
+        <listener class-name="cvListeners.TestListener" />
+    </listeners>
+
+    <test name="cvTest1">
+        <parameter name="platform" value="WIN7" />
+        <parameter name="browserName" value="Chrome" />
+        <parameter name="version" value="50" />
+        <parameter name="remoteUrl" value="http://192.168.1.4:4444/wd/hub" />
+        <classes>
+            <class name="cvFeatureRunners.FeatureRunnerOnChrome" />
+        </classes>
+    </test>
+
+    <test name="cvTest2">
+        <parameter name="platform" value="WIN7" />
+        <parameter name="browserName" value="Firefox" />
+        <parameter name="version" value="50" />
+        <parameter name="remoteUrl" value="http://192.168.1.4:4444/wd/hub" />
+        <classes>
+            <class name="cvFeatureRunners.FeatureRunnerOnFirefox" />
+        </classes>
+    </test>
+</suite>

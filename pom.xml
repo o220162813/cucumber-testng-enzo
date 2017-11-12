@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.robot</groupId>
+    <artifactId>cucumber-testng-enzo</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <selenium-java.version>3.5.3</selenium-java.version>
+        <selenium-firefox-driver.version>3.5.3</selenium-firefox-driver.version>
+        <cucumber-core.version>1.2.4</cucumber-core.version>
+        <cucumber-java.version>1.2.5</cucumber-java.version>
+        <cucumber-java8.version>1.2.5</cucumber-java8.version>
+        <cucumber-picocontainer.version>1.2.4</cucumber-picocontainer.version>
+        <cucumber-reporting.version>3.8.0</cucumber-reporting.version>
+        <testng.version>6.10</testng.version>
+        <cucumber-testng.version>1.2.5</cucumber-testng.version>
+        <maven-plugin-api.version>3.5.0</maven-plugin-api.version>
+        <maven-surefire-plugin.version>2.20</maven-surefire-plugin.version>
+        <guava.version>22.0</guava.version>
+        <log4j-api.version>2.9.1</log4j-api.version>
+        <log4j-core.version>2.9.1</log4j-core.version>
+        <commons-lang.version>2.6</commons-lang.version>
+
+        <maven-compiler-plugin.version>3.6.0</maven-compiler-plugin.version>
+        <maven-compiler-plugin.source>1.8</maven-compiler-plugin.source>
+        <maven-compiler-plugin.target>1.8</maven-compiler-plugin.target>
+        <maven-surefire-plugin.version>2.20</maven-surefire-plugin.version>
+
+        <maven-cucumber-reporting.version>3.8.0</maven-cucumber-reporting.version>
+        <maven-cucumber-reporting.projectName>cucumber-testng-enzo</maven-cucumber-reporting.projectName>
+        <maven-cucumber-reporting.buildNumber>-1</maven-cucumber-reporting.buildNumber>
+        <maven-cucumber-reporting.cucumberOutput>${project.build.directory}/RawJsonResult/</maven-cucumber-reporting.cucumberOutput>
+        <maven-cucumber-reporting.outputDirectory>${project.build.directory}/Maven Pretty Local Report</maven-cucumber-reporting.outputDirectory>
+    </properties>
+
+    <developers>
+        <developer>
+            <id>robot.slin</id>
+            <name>Stephen Ching-Feng Lin</name>
+            <email>cstephenlin@gmail.com</email>
+        </developer>
+    </developers>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium-java.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-firefox-driver</artifactId>
+            <version>${selenium-firefox-driver.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-core</artifactId>
+            <version>${cucumber-core.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber-java.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-java8</artifactId>
+            <version>${cucumber-java8.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-picocontainer</artifactId>
+            <version>${cucumber-picocontainer.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.masterthought</groupId>
+            <artifactId>cucumber-reporting</artifactId>
+            <version>${cucumber-reporting.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber-testng.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.maven</groupId>
+            <artifactId>maven-plugin-api</artifactId>
+            <version>${maven-plugin-api.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>${maven-surefire-plugin.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>${commons-lang.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <source>${maven-compiler-plugin.source}</source>
+                    <target>${maven-compiler-plugin.target}</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
+                <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+                    <reuseForks>false</reuseForks>
+                    <argLine>-Duser.language=en</argLine>
+                    <argLine>-Xmx1024m</argLine>
+                    <argLine>-XX:MaxPermSize=256m</argLine>
+                    <argLine>-Dfile.encoding=UTF-8</argLine>
+                    <useFile>false</useFile>
+                    <testFailureIgnore>true</testFailureIgnore>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>integration-test</phase>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>net.masterthought</groupId>
+                <artifactId>maven-cucumber-reporting</artifactId>
+                <version>${maven-cucumber-reporting.version}</version>
+                <executions>
+                    <execution>
+                        <id>execution</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <projectName>${maven-cucumber-reporting.projectName}</projectName>
+                            <buildNumber>${maven-cucumber-reporting.buildNumber}</buildNumber>
+                            <cucumberOutput>${maven-cucumber-reporting.cucumberOutput}</cucumberOutput>
+                            <outputDirectory>${maven-cucumber-reporting.outputDirectory}</outputDirectory>
+                            <parallelTesting>false</parallelTesting>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
